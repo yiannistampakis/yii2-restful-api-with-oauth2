@@ -12,31 +12,27 @@ Hopefully this will save lot of your time as this API includes all the basic stu
 
 This API also includes a developer dashboard with the API documentation which is developed in Yii2. This will be useful to manage your developers access to the API documentation.
 
-[DEMO](http://developers.yii2.nintriva.net)
--------------------
-```
-http://developers.yii2.nintriva.net
-Login: developer/developer
-```
+[DEMO] <!--(http://developers.yii2.nintriva.net)-->
 
+<!-- -------------------
+```
+http://developers.yii2.nintriva.net -->
+
+Login: developer/developer
+
+```
 ## Official Documentation
 
 Documentation for this RESTful API can be found on the [Yii2 RESTful API with OAuth2 Documenation](http://developers.yii2.nintriva.net/).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within this template, please send an e-mail to Sirin k at sirin@nintriva.com. All security vulnerabilities will be promptly addressed.
 
 ## License
 
 The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 
-
 INSTALLATION
-
-
 ```
+
 Step1: Create a database named yii2_rest
 Step2:Clone the source code
 git clone -b master https://github.com/sirinibin/yii2-rest.git
@@ -46,7 +42,7 @@ Step4:composer install
 Step5: ./init
 Step6: vim common/config/main-local.php
 change db information
- 'db' => [
+'db' => [
 
             'class' => 'yii\db\Connection',
 
@@ -61,56 +57,56 @@ change db information
         ],
 
 Step7: Run db migration
-           cd /var/www/yii2-rest
-            ./yii migrate
+cd /var/www/yii2-rest
+./yii migrate
 
 Step8:
-            point API end point URL to backend
-             /var/www/yii2-rest/backend/web
-
+point API end point URL to backend
+/var/www/yii2-rest/backend/web
 
             point frontend URL to frontend
              /var/www/yii2-rest/frontend/web
-```
 
+```
 DIRECTORY STRUCTURE
 -------------------
-
 ```
+
 common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
+config/ contains shared configurations
+mail/ contains view files for e-mails
+models/ contains model classes used in both backend and frontend
+tests/ contains tests for common classes  
 console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
+config/ contains console configurations
+controllers/ contains console controllers (commands)
+migrations/ contains database migrations
+models/ contains console-specific model classes
+runtime/ contains files generated during runtime
 backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
+assets/ contains application assets such as JavaScript and CSS
+config/ contains backend configurations
+controllers/ contains Web controller classes
+models/ contains backend-specific model classes
+runtime/ contains files generated during runtime
+tests/ contains tests for backend application  
+ views/ contains view files for the Web application
+web/ contains the entry script and Web resources
 frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
-```
+assets/ contains application assets such as JavaScript and CSS
+config/ contains frontend configurations
+controllers/ contains Web controller classes
+models/ contains frontend-specific model classes
+runtime/ contains files generated during runtime
+tests/ contains tests for frontend application
+views/ contains view files for the Web application
+web/ contains the entry script and Web resources
+widgets/ contains frontend widgets
+vendor/ contains dependent 3rd-party packages
+environments/ contains environment-based overrides
 
+```
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-advanced/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
 [![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-advanced/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
 [![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
+```
