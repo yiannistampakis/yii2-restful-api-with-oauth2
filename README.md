@@ -12,22 +12,6 @@ Hopefully this will save lot of your time as this API includes all the basic stu
 
 This API also includes a developer dashboard with the API documentation which is developed in Yii2. This will be useful to manage your developers access to the API documentation.
 
-[DEMO](http://)
-
-```
-http://
-
-Login: developer/developer
-```
-
-## Official Documentation
-
-Documentation for this RESTful API can be found on the [Yii2 RESTful API with OAuth2 Documenation]().
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
 INSTALLATION
 
 ```
