@@ -12,15 +12,14 @@ Hopefully this will save lot of your time as this API includes all the basic stu
 
 This API also includes a developer dashboard with the API documentation which is developed in Yii2. This will be useful to manage your developers access to the API documentation.
 
-[DEMO] <!--(http://developers.yii2.nintriva.net)-->
+[DEMO](http://)
 
-<!-- -------------------
 ```
-http://developers.yii2.nintriva.net -->
+http://
 
 Login: developer/developer
-
 ```
+
 ## Official Documentation
 
 Documentation for this RESTful API can be found on the [Yii2 RESTful API with OAuth2 Documenation](http://developers.yii2.nintriva.net/).
@@ -29,10 +28,9 @@ Documentation for this RESTful API can be found on the [Yii2 RESTful API with OA
 
 The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
-
 INSTALLATION
-```
 
+```
 Step1: Create a database named yii2_rest
 Step2:Clone the source code
 git clone -b master https://github.com/sirinibin/yii2-rest.git
@@ -66,17 +64,16 @@ point API end point URL to backend
 
             point frontend URL to frontend
              /var/www/yii2-rest/frontend/web
-
-```
-DIRECTORY STRUCTURE
--------------------
 ```
 
+## DIRECTORY STRUCTURE
+
+```
 common
 config/ contains shared configurations
 mail/ contains view files for e-mails
 models/ contains model classes used in both backend and frontend
-tests/ contains tests for common classes  
+tests/ contains tests for common classes
 console
 config/ contains console configurations
 controllers/ contains console controllers (commands)
@@ -89,7 +86,7 @@ config/ contains backend configurations
 controllers/ contains Web controller classes
 models/ contains backend-specific model classes
 runtime/ contains files generated during runtime
-tests/ contains tests for backend application  
+tests/ contains tests for backend application
  views/ contains view files for the Web application
 web/ contains the entry script and Web resources
 frontend
@@ -104,9 +101,12 @@ web/ contains the entry script and Web resources
 widgets/ contains frontend widgets
 vendor/ contains dependent 3rd-party packages
 environments/ contains environment-based overrides
-
 ```
+
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-advanced/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
 [![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-advanced/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
 [![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
+
+```
+
 ```
