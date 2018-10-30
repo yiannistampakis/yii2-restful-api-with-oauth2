@@ -22,7 +22,7 @@ Login: developer/developer
 
 ## Official Documentation
 
-Documentation for this RESTful API can be found on the [Yii2 RESTful API with OAuth2 Documenation](http://developers.yii2.nintriva.net/).
+Documentation for this RESTful API can be found on the [Yii2 RESTful API with OAuth2 Documenation]().
 
 ## License
 
