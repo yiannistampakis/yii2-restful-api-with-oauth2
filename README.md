@@ -16,11 +16,11 @@ INSTALLATION
 
 ```
 Step1: Create a database named yii2_rest
-Step2:Clone the source code
+Step2: Clone the source code into your < web server path >
 git clone -b master https://github.com/sirinibin/yii2-rest.git
 
 Step3: cd yii2-rest
-Step4:composer install
+Step4: composer install
 Step5: ./init
 Step6: vim common/config/main-local.php
 change db information
@@ -30,24 +30,24 @@ change db information
 
             'dsn' => 'mysql:host=127.0.0.1;dbname=yii2_rest',
 
-            'username' => 'root',
+            'username' => '<username goes here>',
 
-            'password' => '123',
+            'password' => '<password goes here>',
 
             'charset' => 'utf8',
 
         ],
 
 Step7: Run db migration
-cd /var/www/yii2-rest
+cd < web server path >/yii2-rest
 ./yii migrate
 
 Step8:
 point API end point URL to backend
-/var/www/yii2-rest/backend/web
+< web server path >/yii2-rest/backend/web
 
-            point frontend URL to frontend
-             /var/www/yii2-rest/frontend/web
+point frontend URL to frontend
+< web server path >/yii2-rest/frontend/web
 ```
 
 ## DIRECTORY STRUCTURE
