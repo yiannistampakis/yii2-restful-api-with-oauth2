@@ -7,11 +7,11 @@ use Yii;
 /**
  * This is the model class for table "employee".
  *
- * @property int $id
- * @property string $name
- * @property string $email
- * @property string $created_at
- * @property string $updated_at
+ * @property int        $id
+ * @property string     $name
+ * @property string     $email
+ * @property string     $created_at
+ * @property string     $updated_at
  */
 class Employee extends \yii\db\ActiveRecord
 {
@@ -54,7 +54,6 @@ class Employee extends \yii\db\ActiveRecord
 
     static public function search($params)
     {
-
         $page = Yii::$app->getRequest()->getQueryParam('page');
         $limit = Yii::$app->getRequest()->getQueryParam('limit');
         $order = Yii::$app->getRequest()->getQueryParam('order');
@@ -64,8 +63,6 @@ class Employee extends \yii\db\ActiveRecord
         if(isset($search)) {
             $params=$search;
         }
-
-
 
         $limit = isset($limit) ? $limit : 10;
         $page = isset($page) ? $page : 1;
@@ -96,11 +93,9 @@ class Employee extends \yii\db\ActiveRecord
             $query->andFilterWhere(['like', 'email', $params['email']]);
         }
 
-
         if(isset($order)){
             $query->orderBy($order);
         }
-
 
         $additional_info = [
             'page' => $page,
@@ -116,7 +111,6 @@ class Employee extends \yii\db\ActiveRecord
 
     public function beforeSave($insert)
     {
-
         if (parent::beforeSave($insert)) {
 
             if ($this->isNewRecord) {
@@ -131,7 +125,5 @@ class Employee extends \yii\db\ActiveRecord
         } else {
             return false;
         }
-
-
     }
 }

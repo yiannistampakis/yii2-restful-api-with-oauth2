@@ -5,18 +5,10 @@ use yii\helpers\Html;
 $this->title = 'API 1.0 Documenation';
 $this->params['breadcrumbs'][] = $this->title;
 $protocol="http";
-//$api_host="yii2-rest.com";
+//$api_host="yii2-rest-<front || back>:8080";
 
 ?>
-<!--
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-
-    <code><?= __FILE__ ?></code>
-</div>
--->
 <div>
     <h1 style="color:#1b809e;">REST API (V<?= Yii::$app->params['API_VERSION'] ?>)</h1>
 

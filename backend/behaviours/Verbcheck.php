@@ -4,15 +4,10 @@ namespace backend\behaviours;
 use Yii;
 
 /**
- * Created by PhpStorm.
- * User: sirink
- * Date: 29/04/15
- * Time: 2:15 AM
+ * @inheritdoc
  */
 class Verbcheck extends \yii\filters\VerbFilter
 {
-
-
     /**
      * @param ActionEvent $event
      * @return boolean
@@ -21,7 +16,6 @@ class Verbcheck extends \yii\filters\VerbFilter
     public function beforeAction($event)
     {
         $action = $event->action->id;
-
 
         if (isset($this->actions[$action])) {
             $verbs = $this->actions[$action];
@@ -42,8 +36,6 @@ class Verbcheck extends \yii\filters\VerbFilter
 
             // throw new MethodNotAllowedHttpException('Method Not Allowed. This url can only handle the following request methods: ' . implode(', ', $allowed) . '.');
         }
-
         return $event->isValid;
     }
-
 }

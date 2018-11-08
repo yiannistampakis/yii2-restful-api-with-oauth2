@@ -15,7 +15,6 @@ use common\models\AccessTokens;
  */
 class Api extends Component
 {
-
     public function sendFailedResponse($message)
     {
         $this->setHeader(400);
@@ -25,9 +24,8 @@ class Api extends Component
         Yii::$app->end();
     }
 
-    public function sendSuccessResponse($data = false,$additional_info = false)
+    public function sendSuccessResponse($data = false, $additional_info = false)
     {
-
         $this->setHeader(200);
 
         $response = [];
@@ -53,7 +51,6 @@ class Api extends Component
         }
 
         Yii::$app->end();
-
     }
 
     protected function setHeader($status)
@@ -144,7 +141,6 @@ class Api extends Component
         $model->save(false);
 
         return ($model);
-
     }
 
     public function refreshAccesstoken($token)
@@ -160,5 +156,4 @@ class Api extends Component
             Yii::$app->api->sendFailedResponse("Invalid Access token2");
         }
     }
-
 }

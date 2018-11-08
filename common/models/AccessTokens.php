@@ -7,14 +7,14 @@ use Yii;
 /**
  * This is the model class for table "access_tokens".
  *
- * @property int $id
+ * @property int    $id
  * @property string $token
- * @property int $expires_at
+ * @property int    $expires_at
  * @property string $auth_code
- * @property int $user_id
+ * @property int    $user_id
  * @property string $app_id
- * @property int $created_at
- * @property int $updated_at
+ * @property int    $created_at
+ * @property int    $updated_at
  */
 class AccessTokens extends \yii\db\ActiveRecord
 {

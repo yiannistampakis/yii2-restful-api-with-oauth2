@@ -7,13 +7,13 @@ use Yii;
 /**
  * This is the model class for table "authorization_codes".
  *
- * @property int $id
+ * @property int    $id
  * @property string $code
- * @property int $expires_at
- * @property int $user_id
+ * @property int    $expires_at
+ * @property int    $user_id
  * @property string $app_id
- * @property int $created_at
- * @property int $updated_at
+ * @property int    $created_at
+ * @property int    $updated_at
  */
 class AuthorizationCodes extends \yii\db\ActiveRecord
 {
@@ -57,7 +57,7 @@ class AuthorizationCodes extends \yii\db\ActiveRecord
     {
         $model=static::findOne(['code' => $code]);
 
-        if(!$model||$model->expires_at<time())
+        if(!$model || $model->expires_at < time())
         {
             Yii::$app->api->sendFailedResponse("Authcode Expired");
             return(false);

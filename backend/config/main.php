@@ -58,13 +58,11 @@ return [
                 '1/me'=>'site/me',
                 '1/logout'=>'site/logout',
 
-
                 '1/employees'=>'employee/index',
                 '1/employees/view/<id>'=>'employee/view',
                 '1/employees/create'=>'employee/create',
                 '1/employees/update/<id>'=>'employee/update',
                 '1/employees/delete/<id>'=>'employee/delete',
-
 
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
@@ -75,7 +73,6 @@ return [
             ],
 
         ],
-
 
         /*
         'urlManager' => [

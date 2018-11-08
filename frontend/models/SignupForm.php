@@ -13,7 +13,6 @@ class SignupForm extends Model
     public $email;
     public $password;
 
-
     /**
      * @inheritdoc
      */

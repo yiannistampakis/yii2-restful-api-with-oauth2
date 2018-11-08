@@ -6,17 +6,13 @@ use Yii;
 use yii\web\Controller;
 use app\models\LoginForm;
 
-
-
 class RestController extends Controller
 {
-
     public $request;
 
     public $enableCsrfValidation = false;
 
     public $headers;
-
 
     public function behaviors()
     {
@@ -44,11 +40,6 @@ class RestController extends Controller
 
         if($this->request&&!is_array($this->request)){
             Yii::$app->api->sendFailedResponse(['Invalid Json']);
-
         }
-
     }
-
 }
-
-

@@ -10,22 +10,21 @@ use yii\web\IdentityInterface;
 /**
  * User model
  *
- * @property integer $id
- * @property string $username
- * @property string $password_hash
- * @property string $password_reset_token
- * @property string $email
- * @property string $auth_key
- * @property integer $status
- * @property integer $created_at
- * @property integer $updated_at
- * @property string $password write-only password
+ * @property integer    $id
+ * @property string     $username
+ * @property string     $password_hash
+ * @property string     $password_reset_token
+ * @property string     $email
+ * @property string     $auth_key
+ * @property integer    $status
+ * @property integer    $created_at
+ * @property integer    $updated_at
+ * @property string     $password write-only password
  */
-class User extends ActiveRecord implements IdentityInterface
+class User extends ActiveRecord implements IdentityInterface 
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
-
 
     /**
      * @inheritdoc
@@ -65,14 +64,9 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * @inheritdoc
-     */
-    /*
-    public static function findIdentityByAccessToken($token, $type = null)
-    {
-        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
-    }
-    */
+     * Finds user identity by Access Token
+     * 
+     * */
 
     public static function findIdentityByAccessToken($token, $type = null)
     {
@@ -86,7 +80,6 @@ class User extends ActiveRecord implements IdentityInterface
         } else {
             return (false);
         }
-        //throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
     }
 
     /**

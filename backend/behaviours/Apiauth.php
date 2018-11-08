@@ -12,7 +12,8 @@ use yii\filters\auth\AuthMethod;
 use common\models\HaikuApps;
 
 /**
- * QueryParamAuth is an action filter that supports the authentication based on the access token passed through a query parameter.
+ * QueryParamAuth is an action filter that supports the authentication 
+ * based on the access token passed through a query parameter.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
@@ -27,7 +28,6 @@ class Apiauth extends AuthMethod
     public $exclude = [];
     public $callback = [];
 
-
     /**
      * @inheritdoc
      */
@@ -36,15 +36,15 @@ class Apiauth extends AuthMethod
         $headers = Yii::$app->getRequest()->getHeaders();
 
         $accessToken=NULL;
-        if(isset($_GET['access_token'])){
+        if(isset($_GET['access_token'])) {
             $accessToken=$_GET['access_token'];
         }else {
             $accessToken = $headers->get('x-access_token');
         }
 
-        if(empty($accessToken)){
+        if(empty($accessToken)) {
 
-            if(isset($_GET['access-token'])){
+            if(isset($_GET['access-token'])) {
                 $accessToken=$_GET['access-token'];
             }else {
                 $accessToken = $headers->get('x-access-token');
@@ -64,8 +64,6 @@ class Apiauth extends AuthMethod
 
         //echo $accessToken;
         //exit;
-
-
 
         /*
         if(isset($_SERVER['HTTP_X_ACCESS_TOKEN'])) {
@@ -88,7 +86,6 @@ class Apiauth extends AuthMethod
             // $this->handleFailure($response);
         }
 
-
         return null;
     }
 
@@ -96,7 +93,6 @@ class Apiauth extends AuthMethod
     {
         //echo "okk";
         //exit;
-
 
         if (in_array($action->id, $this->exclude)&&
             !isset($_GET['access-token']))
@@ -110,7 +106,6 @@ class Apiauth extends AuthMethod
         //if (!$this->verifyApp())
         //    Yii::$app->api->sendFailedResponse('Invalid Request(App not verified)');
 
-
         if (in_array($action->id, $this->callback)&&
             !isset($_GET['access-token']))
         {
@@ -119,8 +114,6 @@ class Apiauth extends AuthMethod
             // exit;
             return true;
         }
-
-
 
         $response = $this->response ?: Yii::$app->getResponse();
 
@@ -149,5 +142,4 @@ class Apiauth extends AuthMethod
         Yii::$app->api->sendFailedResponse('Invalid Access token');
         //throw new UnauthorizedHttpException('You are requesting with an invalid credential.');
     }
-
 }

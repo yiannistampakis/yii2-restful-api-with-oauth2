@@ -80,8 +80,7 @@ class SiteController extends Controller
         {
             $api_host=Yii::$app->params['prod_api_url'];
         }
-
-
+        
         return $this->render('apidoc',['api_host'=>$api_host]);
     }
 
@@ -92,14 +91,18 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        //echo("1"); exit();
         if (!Yii::$app->user->isGuest) {
+            echo("2"); exit();
             return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            echo("3"); exit();
             return $this->goBack();
         } else {
+            //echo("4"); exit();    
             return $this->render('login', [
                 'model' => $model,
             ]);

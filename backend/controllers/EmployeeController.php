@@ -2,7 +2,6 @@
 
 namespace backend\controllers;
 
-
 use yii\filters\AccessControl;
 use app\models\Employee;
 use backend\behaviours\Verbcheck;
@@ -10,18 +9,13 @@ use backend\behaviours\Apiauth;
 
 use Yii;
 
-
-
 class EmployeeController extends RestController
 {
-
     public function behaviors()
     {
-
         $behaviors = parent::behaviors();
 
         return $behaviors + [
-
            'apiauth' => [
                'class' => Apiauth::className(),
                'exclude' => [],
@@ -37,9 +31,7 @@ class EmployeeController extends RestController
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => [
-                            'index'
-                        ],
+                        'actions' => ['index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -60,7 +52,6 @@ class EmployeeController extends RestController
                     'delete' => ['DELETE']
                 ],
             ],
-
         ];
     }
 
@@ -73,7 +64,6 @@ class EmployeeController extends RestController
 
     public function actionCreate()
     {
-
         $model = new Employee;
         $model->attributes = $this->request;
 
@@ -82,12 +72,10 @@ class EmployeeController extends RestController
         } else {
             Yii::$app->api->sendFailedResponse($model->errors);
         }
-
     }
 
     public function actionUpdate($id)
     {
-
         $model = $this->findModel($id);
         $model->attributes = $this->request;
 
