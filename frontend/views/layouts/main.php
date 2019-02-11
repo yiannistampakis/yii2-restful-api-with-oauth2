@@ -29,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Yii2 RESTful API',
+        'brandLabel' => '&copy; ΥΠΠΕΘ 2019 - HRM RESTful API',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -44,7 +44,8 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
-        $menuItems[] = ['label' => 'Employees', 'url' => ['/employee/index']];
+        // $menuItems[] = ['label' => 'Employees', 'url' => ['/employee/index']];
+        $menuItems[] = ['label' => 'Person', 'url' => ['/person/index']];
        // $menuItems[] = ['label' => 'Users', 'url' => ['/user/index']];
 
         $menuItems[] = '<li>'
@@ -76,9 +77,12 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Yii2 RESTful API <?= date('Y') ?></p>
+        <p class="pull-left"><small>&copy; Υπουργείο Παιδείας, Έρευνας & Θρησκευμάτων 2019 - HRM RESTful API v.1.0 </small>
+            <!-- <?= date('Y') ?> -->
+        </p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <!-- <p class="pull-right"><?= Yii::powered() ?></p> -->
+        <p class="pull-right"> <small>Ανάπτυξη: Δ/ση Ανάπτυξης Πληροφοριακών Συστημάτων - Τμήμα Δ' Υποστηρικτικών Εφαρμογών</small></p>
     </div>
 </footer>
 

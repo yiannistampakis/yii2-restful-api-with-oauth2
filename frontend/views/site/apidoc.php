@@ -5,26 +5,26 @@ use yii\helpers\Html;
 $this->title = 'API 1.0 Documenation';
 $this->params['breadcrumbs'][] = $this->title;
 $protocol="http";
-//$api_host="yii2-rest-<front || back>:8080";
+//$api_host="yii2-rest- < front || back >:8080";
+$api_host="yii2-rest-back:8080";
 
 ?>
 
 <div>
-    <h1 style="color:#1b809e;">REST API (V<?= Yii::$app->params['API_VERSION'] ?>)</h1>
+    <h1 style="color:#1b809e;">HRM REST API (v.<?= Yii::$app->params['API_VERSION'] ?>) </h1>
 
-    <p>The REST API lets you interact with the App from anything that can send an HTTP request. There are many things
-        you can do with the REST API. For example:</p>
-    <ul>
+    <p>The REST API lets you interact with the HRM App from anything that can send an HTTP request. </p>
+    <!-- <ul>
         <li>A mobile app can access App data.</li>
         <li>A webserver can show data from this App on a website.</li>
         <li>Applications written in any programming language can interact with data on this App.</li>
-    </ul>
+    </ul> -->
     <h3 style="color:#1b809e;">Quick Reference</h3>
 
     <p>
         All API access is over <b><?= strtoupper($protocol); ?></b>, and accessed via the
         <mark><?php echo $protocol . "://" . $api_host; ?></mark>
-        domain.The relative path prefix <code>/<?= Yii::$app->params['API_VERSION'] ?>/</code> indicates that we are
+        domain.The relative path prefix <code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/</code> indicates that we are
         currently using <code>version <?= Yii::$app->params['API_VERSION'] ?></code> of the API.
     </p>
 </div>
@@ -38,7 +38,7 @@ $protocol="http";
             <th class="col-md-4">Functionality</th>
         </tr>
         <tr>
-            <td><code>/<?= Yii::$app->params['API_VERSION'] ?>/register</code></td>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/register</code></td>
             <td><strong>POST</strong></td>
             <td><a href="#register">Signup a user</a></td>
         </tr>
@@ -54,12 +54,12 @@ $protocol="http";
             <th class="col-md-4">Functionality</th>
         </tr>
         <tr>
-            <td><code>/<?= Yii::$app->params['API_VERSION'] ?>/authorize</code></td>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/authorize</code></td>
             <td><strong>POST</strong></td>
             <td><a href="#authorizing_user">Authorizing User account</a></td>
         </tr>
         <tr>
-            <td><code>/<?= Yii::$app->params['API_VERSION'] ?>/accesstoken</code></td>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/accesstoken</code></td>
             <td><strong>POST</strong></td>
             <td><a href="#obtain_access_token">Obtain Access token</a></td>
         </tr>
@@ -75,18 +75,18 @@ $protocol="http";
             <th class="col-md-4">Functionality</th>
         </tr>
         <tr>
-            <td><code>/<?= Yii::$app->params['API_VERSION'] ?>/me</code></td>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/me</code></td>
             <td><strong>GET</strong></td>
             <td><a href="#me">Get User info.</a></td>
         </tr>
         <tr>
-            <td><code>/<?= Yii::$app->params['API_VERSION'] ?>/logout</code></td>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/logout</code></td>
             <td><strong>GET</strong></td>
             <td><a href="#logout">Logout User</a></td>
         </tr>
     </table>
 </div>
-<h4 style="color:#1b809e;"> Employees</h4>
+<h4 style="color:#1b809e;"> Persons</h4>
 <div class="table-responsive">
     <table class="table">
         <tr class="info ">
@@ -95,29 +95,39 @@ $protocol="http";
             <th class="col-md-4">Functionality</th>
         </tr>
         <tr>
-            <td><code>/<?= Yii::$app->params['API_VERSION'] ?>/employees</code></td>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person</code></td>
             <td><strong>GET</strong></td>
-            <td><a href="#list_employees">List Employees</a></td>
+            <td><a href="#list_employees">List Persons</a></td>
         </tr>
         <tr>
-            <td><code>/<?= Yii::$app->params['API_VERSION'] ?>/employees/create</code></td>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/create</code></td>
             <td><strong>POST</strong></td>
-            <td><a href="#create_employee">Create a new Employee</a></td>
+            <td><a href="#create_employee">Create a new Person</a></td>
         </tr>
         <tr>
-            <td><code>/<?= Yii::$app->params['API_VERSION'] ?>/employees/update/&ltid&gt</code></td>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/update/&ltid&gt</code></td>
             <td><strong>PUT</strong></td>
-            <td><a href="#update_employee">Update an Employee record</a></td>
+            <td><a href="#update_employee">Update a Person record</a></td>
         </tr>
         <tr>
-            <td><code>/<?= Yii::$app->params['API_VERSION'] ?>/employees/view/&ltid&gt</code></td>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/view/&ltid&gt</code></td>
             <td><strong>GET</strong></td>
-            <td><a href="#view_employee">View an Employee record</a></td>
+            <td><a href="#view_employee">View a Person record</a></td>
         </tr>
         <tr>
-            <td><code>/<?= Yii::$app->params['API_VERSION'] ?>/employees/delete/&ltid&gt</code></td>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/delete/&ltid&gt</code></td>
             <td><strong>DELETE</strong></td>
-            <td><a href="#delete_employee">Delete an Employee record</a></td>
+            <td><a href="#delete_employee">Delete a Person record</a></td>
+        </tr>
+        <tr>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/sdap</code></td>
+            <td><strong>GET</strong></td>
+            <td><a href="#person_employee">Get all active Persons (as Employees) with their latest Department placement</a></td>
+        </tr>
+        <tr>
+            <td><code>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/sdap/teacher</code></td>
+            <td><strong>GET</strong></td>
+            <td><a href="#person_teacher">Get all Persons (as Teachers)</a></td>
         </tr>
     </table>
 </div>
@@ -178,7 +188,7 @@ $protocol="http";
     <h6>Request</h6>
       <pre>
       curl -X POST \
-      <?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION'] ?>/register \
+      <?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/register \
       -H 'content-type: application/json' \
       -d '{
       "username":"user123",
@@ -187,7 +197,7 @@ $protocol="http";
     }'
 
     </pre>
-    <h6>Response</h6>
+    <h6>Success Response</h6>
     <pre>
       {
     "status": 1,
@@ -206,13 +216,13 @@ $protocol="http";
     <h4 style="color:#1b809e;">Authorizing User account</h4>
 
     <p>
-        To authorize a user account using their username & password.Send a POST
+        To authorize a user account using their username & password. Send a POST
         request to the URL with the user informations then it will return an <b>Authorization
             token</b> which can be used to obtain an <b>access-token</b> for further API calls.
     </p>
     <pre>
     curl -X POST \
-        <?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION'] ?>/authorize \
+        <?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/authorize \
       -H 'content-type: application/json' \
       -d '{
       "username":"user123",
@@ -220,7 +230,7 @@ $protocol="http";
     }'
     </pre>
     <p>
-        When the Authorization is successful,the HTTP response will be 200 OK with
+        When the Authorization is successful, the HTTP response will be 200 OK with
         a JSON object containing a status element having a success value 1.
 
     <p>
@@ -247,15 +257,15 @@ $protocol="http";
     <h6>Request</h6>
       <pre>
       curl -X POST \
-          <?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION'] ?>/accesstoken \
+          <?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/accesstoken \
       -H 'content-type: application/json' \
       -d '{
-            "authorization_code": "376d4d0c24004aa638e1562b4d69e9c3"
+            "authorization_code": "eb9155aaea82d968046b01d3b9ae075f"
          }'
 
 
     </pre>
-    <h6>Response</h6>
+    <h6>Success Response</h6>
     <pre>
         {
             "status": 1,
@@ -270,16 +280,16 @@ $protocol="http";
     <h4 style="color:#1b809e;">Get User Info.</h4>
 
     <p>
-        To get the User informations
+        To get the User informations.
     </p>
     <h6>Request</h6>
       <pre>
       curl -X GET \
-     -H "X-Access-Token: 2dadd4bc51a15a41490cdce30383be67" \
-     -G  '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION'] ?>/me'
+     -H "X-Access-Token: 74191f2b7fb6da7e60be2d5bee345a8b" \
+     -G  '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/me'
 
     </pre>
-    <h6>Response</h6>
+    <h6>Success Response</h6>
     <pre>
         {
             "status": 1,
@@ -305,151 +315,143 @@ $protocol="http";
     <h6>Request</h6>
       <pre>
     curl -X GET \
-          -H "X-Access-Token: 2dadd4bc51a15a41490cdce30383be67" \
-          -G  '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION'] ?>/logout'
+          -H "X-Access-Token: 74191f2b7fb6da7e60be2d5bee345a8b" \
+          -G  '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/logout'
 
 
     </pre>
-    <h6>Response</h6>
+    <h6>Success Response</h6>
     <pre>
         {
           "status": 1,
-          "data": "Logged Out Successfully"
+          "data": [ "Logged Out Successfully" ]
         }
         </pre>
 </div>
 <div id="list_employees">
-    <h4 style="color:#1b809e;">List Employees</h4>
+    <h4 style="color:#1b809e;">List Persons</h4>
 
     <p>
-        To List all employees
+        To List all persons.
 
     </p>
     <h6>Request</h6>
       <pre>
     curl -X GET \
-          -H "X-Access-Token: 2dadd4bc51a15a41490cdce30383be67" \
-          -G  '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION'] ?>/employees'
+          -H "X-Access-Token: 74191f2b7fb6da7e60be2d5bee345a8b" \
+          -G  '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person'
 
 
     </pre>
-    <code> Optional sort/filter params: page,limit,order,search[name],search[email],search[id]... etc</code>
-    <h6>Response</h6>
+    <code> Optional sort/filter params: page, limit, order, search[PER_AFM], search[PER_Id], search[PER_LastName]... etc</code>
+    <h6>Success Response</h6>
     <pre>
         {
             "status": 1,
             "data": [
                 {
-                    "id": "3",
-                    "name": "John ",
-                    "email": "john@gmail.com",
-                    "created_at": "2017-09-16 03:09:12",
-                    "updated_at": "2017-09-16 15:51:25"
+                    "PER_Id": 1,
+                    "PER_FirstName": "ΓΙΑΝΝΗΣ",
+                    "PER_LastName": "ΠΑΠΑΔΟΠΟΥΛΟΣ",
+                    "PER_FatherFirstName": "ΧΡΗΣΤΟΣ",
+                    "PER_AFM": "111111111111"
+                    "PER_Email": "test1@test.com" 
                 },
                 {
-                    "id": "5",
-                    "name": "sirin",
-                    "email": "sirin@gmail.com",
-                    "created_at": "2017-09-16 19:57:57",
-                    "updated_at": "2017-09-16 19:57:57"
-                },
-                {
-                    "id": "7",
-                    "name": "sirin",
-                    "email": "sirin3@gmail.com",
-                    "created_at": "2017-09-16 19:58:38",
-                    "updated_at": "2017-09-16 19:58:38"
-                },
-                {
-                    "id": "8",
-                    "name": "sirin",
-                    "email": "sirin5@gmail.com",
-                    "created_at": "2017-09-16 20:09:12",
-                    "updated_at": "2017-09-16 20:10:08"
+                    "PER_Id": 2,
+                    "PER_FirstName": "ΓΙΩΡΓΟΣ",
+                    "PER_LastName": "ΔΗΜΗΤΡΙΟΥ",
+                    "PER_FatherFirstName": "ΑΝΤΩΝΗΣ",
+                    "PER_AFM": "222222222222"
+                    "PER_Email": "test2@test.com" 
                 }
             ],
             "page": 1,
-            "size": 10,
-            "totalCount": 4
+            "size": 10000,
+            "totalCount": 2
         }
         </pre>
 </div>
 <div id="create_employee">
-    <h4 style="color:#1b809e;">Create a new Employee</h4>
+    <h4 style="color:#1b809e;">Create a new Person</h4>
 
     <p>
-        To Create a new Employee record
+        To Create a new Person record.
     </p>
     <h6>Request</h6>
       <pre>
     curl -X POST \
-          '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION'] ?>/employees/create' \
-          -H "X-Access-Token: 2dadd4bc51a15a41490cdce30383be67" \
+          '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/create' \
+          -H "X-Access-Token: 74191f2b7fb6da7e60be2d5bee345a8b" \
           -H 'content-type: application/json' \
           -d '{
-                  "name":"Christy",
-                  "email":"christy@gmail.com"
-             }'
+                    "PER_FirstName": "ΜΑΡΙΑ",
+                    "PER_LastName": "ΧΑΡΙΤΟΥ",
+                    "PER_FatherFirstName": "ΠΑΝΑΓΙΩΤΗΣ",
+                    "PER_AFM": "333333333333"
+                    "PER_Email": "test3@test.com" 
+                }'
 
 
     </pre>
-    <h6>Response</h6>
+    <h6>Success Response</h6>
     <pre>
         {
             "status": 1,
             "data": {
-                "id": 9,
-                "name": "Christy",
-                "email": "christy@gmail.com",
-                "created_at": "2017-09-17 10:05:24",
-                "updated_at": "2017-09-17 10:05:24"
+                "PER_Id": 3,
+                "PER_FirstName": "ΜΑΡΙΑ",
+                "PER_LastName": "ΧΑΡΙΤΟΥ",
+                "PER_FatherFirstName": "ΠΑΝΑΓΙΩΤΗΣ",
+                "PER_AFM": "333333333333",
+                "PER_Email": "test3@test.com"
             }
         }
         </pre>
 </div>
 <div id="update_employee">
-    <h4 style="color:#1b809e;">Update an Employee record</h4>
+    <h4 style="color:#1b809e;">Update a Person record</h4>
 
     <p>
-        To Update Employee record
+        To Update Person record.
     </p>
     <h6>Request</h6>
       <pre>
     curl -X PUT \
-          '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION'] ?>/employees/update/9' \
-          -H "X-Access-Token: 2dadd4bc51a15a41490cdce30383be67" \
+          '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/update/3' \
+          -H "X-Access-Token: 74191f2b7fb6da7e60be2d5bee345a8b" \
           -H 'content-type: application/json' \
           -d '{
-                  "name":"christy james",
-                  "email":"christy@gmail.com"
-             }'
+                  "PER_FirstName":"ΜΑΡΙΑΝΘΗ"
+            }'
 
     </pre>
-    <h6>Response</h6>
+    <h6>Success Response</h6>
     <pre>
         {
             "status": 1,
             "data": {
-                "id": 9,
-                "name": "christy james",
-                "email": "christy@gmail.com",
-                "created_at": "2017-09-17 10:05:24",
-                "updated_at": "2017-09-17 10:08:50"
+                "PER_Id": 3,
+                "PER_FirstName": "ΜΑΡΙΑΝΘΗ",
+                "PER_LastName": "ΧΑΡΙΤΟΥ",
+                "PER_FatherFirstName": "ΠΑΝΑΓΙΩΤΗΣ",
+                "PER_AFM": "333333333333",
+                "PER_Email": "test3@test.com"
             }
         }
         </pre>
 </div>
 <div id="view_employee">
-    <h4 style="color:#1b809e;">View an empoloyee details</h4>
+    <h4 style="color:#1b809e;">View a person's details</h4>
 
     <p>
-        To view an empoloyee record.
+        To view a person's record.
     </p>
     <h6>Request</h6>
       <pre>
      curl -X GET \
-          '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION'] ?>/employees/view/9' \
-          -H "X-Access-Token: 2dadd4bc51a15a41490cdce30383be67"
+          '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/view/3' \
+          -H "X-Access-Token: 74191f2b7fb6da7e60be2d5bee345a8b"
 
     </pre>
     <h6>Success Response</h6>
@@ -457,38 +459,113 @@ $protocol="http";
         {
             "status": 1,
             "data": {
-                "id": 9,
-                "name": "christy james",
-                "email": "christy@gmail.com",
-                "created_at": "2017-09-17 10:05:24",
-                "updated_at": "2017-09-17 10:08:50"
+                "PER_Id": 3,
+                "PER_FirstName": "ΜΑΡΙΑΝΘΗ",
+                "PER_LastName": "ΧΑΡΙΤΟΥ",
+                "PER_FatherFirstName": "ΠΑΝΑΓΙΩΤΗΣ",
+                "PER_AFM": "333333333333",
+                "PER_Email": "test3@test.com"
             }
         }
         </pre>
 </div>
 <div id="delete_employee">
-    <h4 style="color:#1b809e;">Delete an employee record</h4>
+    <h4 style="color:#1b809e;">Delete a person's record</h4>
 
     <p>
-        To Delete an employee record.<br/>
+        To Delete a person's record.<br/>
     </p>
     <h6>Request</h6>
       <pre>
    curl -X DELETE \
-          '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION'] ?>/employees/delete/9' \
-          -H "X-Access-Token: 2dadd4bc51a15a41490cdce30383be67"
+          '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/delete/3' \
+          -H "X-Access-Token: 74191f2b7fb6da7e60be2d5bee345a8b"
     </pre>
     <h6>Success Response</h6>
     <pre>
         {
             "status": 1,
             "data": {
-                "id": 9,
-                "name": "christy james",
-                "email": "christy@gmail.com",
-                "created_at": "2017-09-17 10:05:24",
-                "updated_at": "2017-09-17 10:08:50"
+                "PER_Id": 3,
+                "PER_FirstName": "ΜΑΡΙΑΝΘΗ",
+                "PER_LastName": "ΧΑΡΙΤΟΥ",
+                "PER_FatherFirstName": "ΠΑΝΑΓΙΩΤΗΣ",
+                "PER_AFM": "333333333333",
+                "PER_Email": "test3@test.com"
             }
+        }
+        </pre>
+
+</div>
+
+<div id="person_employee">
+    <h4 style="color:#1b809e;">Get all active Persons (as Employees) with their latest Department placement</h4>
+
+    <p>
+        To get all active Employees with their latest Department placement. The AFM value must be already set.<br/>
+    </p>
+    <h6>Request</h6>
+      <pre>
+   curl -X GET \
+          '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/sdap' \
+          -H "X-Access-Token: 74191f2b7fb6da7e60be2d5bee345a8b"
+    </pre>
+    <code> Optional sort/filter params: page, limit, order, search[PER_AFM], search[PER_Id], search[PER_LastName]... etc</code>
+    <h6>Success Response</h6>
+    <pre>
+        {
+            "status": 1,
+            "data": [
+                {
+                    "PER_Id": 3,
+                    "PER_FirstName": "ΜΑΡΙΑΝΘΗ",
+                    "PER_LastName": "ΧΑΡΙΤΟΥ",
+                    "PER_FatherFirstName": "ΠΑΝΑΓΙΩΤΗΣ",
+                    "PER_AFM": "333333333333",
+                    "PER_Email": "test3@test.com"
+                    "PLH_DEP_Id": 123
+                },
+                {
+                    ...
+                },
+                ...
+            ]
+        }
+        </pre>
+
+</div>
+
+<div id="person_teacher">
+    <h4 style="color:#1b809e;">Get all Persons (as Teachers)</h4>
+
+    <p>
+        To get all Teachers. The AFM value must be already set.<br/>
+    </p>
+    <h6>Request</h6>
+      <pre>
+   curl -X GET \
+          '<?php echo $protocol . "://" . $api_host; ?>/<?= Yii::$app->params['API_VERSION_URL'] ?>/person/sdap/teacher' \
+          -H "X-Access-Token: 74191f2b7fb6da7e60be2d5bee345a8b"
+    </pre>
+    <code> Optional sort/filter params: page, limit, order, search[PER_AFM], search[PER_Id], search[PER_LastName]... etc</code>
+    <h6>Success Response</h6>
+    <pre>
+        {
+            "status": 1,
+            "data": [
+                {
+                    "PER_Id": 3,
+                    "PER_FirstName": "ΜΑΡΙΑΝΘΗ",
+                    "PER_LastName": "ΧΑΡΙΤΟΥ",
+                    "PER_FatherFirstName": "ΠΑΝΑΓΙΩΤΗΣ",
+                    "PER_AFM": "333333333333",
+                    "PER_Email": "test3@test.com"
+                },
+                {
+                    ...
+                },
+                ...
+            ]
         }
         </pre>
 

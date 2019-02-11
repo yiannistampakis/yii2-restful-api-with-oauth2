@@ -130,7 +130,7 @@ class Api extends Component
 
         $model->expires_at = time() + (60 * 60 * 24 * 60); // 60 days
 
-        // $model->expires_at=time()+(60 * 2);// 2 minutes
+        // $model->expires_at=time()+(60 * 50);// 50 minutes
 
         $model->user_id = $auth_code->user_id;
 

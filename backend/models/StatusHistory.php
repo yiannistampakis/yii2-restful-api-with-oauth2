@@ -5,19 +5,19 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "employee".
+ * This is the model class for table "StatusHistory".
  *
- * @property int    $EMP_Id
- * @property int    $EMP_PER_id
+ * @property int    $STH_Id
+ * @property int    $STH_EMP_id
  */
-class Employee extends \yii\db\ActiveRecord
+class StatusHistory extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'Employee';
+        return 'StatusHistory';
     }
 
     /**
@@ -26,21 +26,21 @@ class Employee extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['EMP_Id', 'EMP_PER_Id'], 'required'],
-            [['EMP_Id', 'EMP_PER_Id'], 'integer'],
+            [['STH_Id', 'STH_EMP_Id'], 'required'],
+            [['STH_Id', 'STH_EMP_Id'], 'integer'],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
-        return [
-            'EMP_Id' => 'Employee\'s Id',
-            'EMP_PER_Id' => 'Employee\'s Person Id',
-        ];
-    }
+    // public function attributeLabels()
+    // {
+    //     return [
+    //         'STH_Id' => '',
+    //         'STH_EMP_Id' => '',
+    //     ];
+    // }
 
     // static public function search($params)
     // {

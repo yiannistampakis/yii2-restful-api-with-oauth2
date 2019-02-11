@@ -91,15 +91,15 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        //echo("1"); exit();
         if (!Yii::$app->user->isGuest) {
-            echo("2"); exit();
+            // echo("2"); exit();
             return $this->goHome();
         }
 
+        //echo("1"); exit();
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            echo("3"); exit();
+            // echo("3"); exit();
             return $this->goBack();
         } else {
             //echo("4"); exit();    

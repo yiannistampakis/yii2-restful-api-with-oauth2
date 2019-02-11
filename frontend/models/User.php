@@ -5,17 +5,17 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "user".
+ * This is the model class for table "user_api".
  *
- * @property int    $id
- * @property string $username
- * @property string $auth_key
- * @property string $password_hash
- * @property string $password_reset_token
- * @property string $email
- * @property int    $status
- * @property int    $created_at
- * @property int    $updated_at
+ * @property int        $id
+ * @property string     $username
+ * @property string     $auth_key
+ * @property string     $password_hash
+ * @property string     $password_reset_token
+ * @property string     $email
+ * @property int        $status
+ * @property int        $created_at
+ * @property int        $updated_at
  */
 class User extends \yii\db\ActiveRecord
 {
@@ -24,7 +24,7 @@ class User extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'user';
+        return 'user_api';
     }
 
     /**

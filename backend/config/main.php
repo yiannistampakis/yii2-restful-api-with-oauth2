@@ -22,10 +22,35 @@ return [
             ]
         ],
         'response' => [
+            // 'class' => yii\web\Response::class,
             'format' => yii\web\Response::FORMAT_JSON,
             'charset' => 'UTF-8',
-            // ...
+            'on beforeSend' => function ($event) {
+                /* @var $response Response */
+                $response = $event->sender;
+                if ($response->statusCode !== 200 && $response->statusCode !== 302) {
+                    
+                    // $response->data = [
+                    //     'success' => $response->isSuccessful,
+                    //     'data' => $response->statusCode
+                    // ];
+                    
+                    // if response is a '400 Bad Request' 
+                    // makes the response normal '200' 
+                    // and the client catches the error through
+                    // error_code field in the json body 
+                    if ($response->statusCode == 400) {
+                        $response->statusCode = 200;
+                        $response->format = yii\web\Response::FORMAT_JSON;
+                    }
+                }
+            },
         ],
+        //  'response' => [
+        //     'format' => yii\web\Response::FORMAT_JSON,
+        //     'charset' => 'UTF-8',
+        //     // ...
+        // ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -63,6 +88,15 @@ return [
                 '1/employees/create'=>'employee/create',
                 '1/employees/update/<id>'=>'employee/update',
                 '1/employees/delete/<id>'=>'employee/delete',
+
+                '1/person'=>'person/index',
+                '1/person/view/<id>'=>'person/view',
+                '1/person/create'=>'person/create',
+                '1/person/update/<id>'=>'person/update',
+                '1/person/delete/<id>'=>'person/delete',
+                
+                '1/person/sdap/'=>'person/sdap',
+                '1/person/sdap/teacher'=>'person/sdap-teacher',
 
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
