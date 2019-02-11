@@ -17,7 +17,7 @@ INSTALLATION
 ```
 Step1: Create a database named yii2_rest
 Step2: Clone the source code into your < web server path >
-git clone -b master https://github.com/sirinibin/yii2-rest.git
+git clone -b master https://github.com/yiannistampakis/yii2-restful-api-with-oauth2.git
 
 Step3: cd yii2-rest
 Step4: composer install
