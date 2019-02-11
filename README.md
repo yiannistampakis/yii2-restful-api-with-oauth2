@@ -19,7 +19,7 @@ Step1: Create a database named yii2_rest
 Step2: Clone the source code into your < web server path >
 git clone -b master https://github.com/yiannistampakis/yii2-restful-api-with-oauth2.git
 
-Step3: cd yii2-rest
+Step3: cd yii2-restful-api-with-oauth2
 Step4: composer install
 Step5: ./init
 Step6: vim common/config/main-local.php
@@ -39,15 +39,15 @@ change db information
         ],
 
 Step7: Run db migration
-cd < web server path >/yii2-rest
+cd < web server path >/yii2-restful-api-with-oauth2
 ./yii migrate
 
 Step8:
 point API end point URL to backend
-< web server path >/yii2-rest/backend/web
+< web server path >/yii2-restful-api-with-oauth2/backend/web
 
 point frontend URL to frontend
-< web server path >/yii2-rest/frontend/web
+< web server path >/yii2-restful-api-with-oauth2/frontend/web
 ```
 
 ## DIRECTORY STRUCTURE
