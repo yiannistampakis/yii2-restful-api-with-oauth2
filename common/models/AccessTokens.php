@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "access_tokens".
+ * This is the model class for table "api.AccessTokens".
  *
  * @property int    $id
  * @property string $token
@@ -23,7 +23,7 @@ class AccessTokens extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'access_tokens';
+        return 'api.AccessTokens';
     }
 
     /**

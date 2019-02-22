@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "authorization_codes".
+ * This is the model class for table "api.AuthorizationCodes".
  *
  * @property int    $id
  * @property string $code
@@ -22,7 +22,7 @@ class AuthorizationCodes extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'authorization_codes';
+        return 'api.AuthorizationCodes';
     }
 
     /**
