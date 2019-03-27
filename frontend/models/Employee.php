@@ -5,13 +5,14 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "employee".
+ * This is the model class for table "Employee".
  *
- * @property int    $id
- * @property string $name
- * @property string $email
- * @property string $created_at
- * @property string $updated_at
+ * @property int        $EMP_Id
+ * @property string     $EMP_FirstName
+ * @property string     $EMP_LastName
+ * @property string     $EMP_FatherFirstName
+ * @property string     $EMP_AFM
+ * @property string     $EMP_Email
  */
 class Employee extends \yii\db\ActiveRecord
 {
@@ -20,7 +21,7 @@ class Employee extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'employee';
+        return 'Employee';
     }
 
     /**
@@ -29,10 +30,9 @@ class Employee extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email'], 'required'],
-            [['created_at', 'updated_at'], 'safe'],
-            [['name'], 'string', 'max' => 200],
-            [['email'], 'string', 'max' => 100],
+            [['EMP_FirstName', 'EMP_LastName', 'EMP_FatherFirstName','EMP_AFM'], 'required'],
+            [['EMP_FirstName', 'EMP_LastName', 'EMP_FatherFirstName', 'EMP_Email'], 'string'],
+            [['EMP_AFM'], 'unique'],
         ];
     }
 
@@ -42,11 +42,14 @@ class Employee extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'email' => 'Email',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'EMP_Id' => 'Αναγνωριστικό',
+            'EMP_FirstName' => 'Όνομα',
+            'EMP_LastName' => 'Επίθετο',
+            'EMP_FatherFirstName' => 'Πατρώνυμο',
+            'EMP_AFM' => 'Α.Φ.Μ',
+            'EMP_Email' => 'E-mail' 
         ];
     }
+
+    
 }

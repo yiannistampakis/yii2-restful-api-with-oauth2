@@ -3,8 +3,10 @@
 namespace frontend\controllers;
 
 use Yii;
+
 use app\models\Employee;
 use app\models\EmployeeSearch;
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -47,7 +49,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * Lists all Employee models.
+     * Lists all Person models.
      * @return mixed
      */
     public function actionIndex()
@@ -83,7 +85,7 @@ class EmployeeController extends Controller
         $model = new Employee();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->EMP_Id]);
         }
 
         return $this->render('create', [
@@ -102,7 +104,7 @@ class EmployeeController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->EMP_Id]);
         }
 
         return $this->render('update', [

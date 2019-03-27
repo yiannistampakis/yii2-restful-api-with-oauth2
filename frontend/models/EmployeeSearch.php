@@ -3,8 +3,10 @@
 namespace app\models;
 
 use Yii;
+
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+
 use app\models\Employee;
 
 /**
@@ -18,8 +20,8 @@ class EmployeeSearch extends Employee
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name', 'email', 'created_at', 'updated_at'], 'safe'],
+            [['EMP_Id'], 'integer'],
+            [['EMP_FirstName', 'EMP_LastName', 'EMP_FatherFirstName', 'EMP_AFM', 'EMP_Email'], 'safe'],
         ];
     }
 
@@ -59,13 +61,14 @@ class EmployeeSearch extends Employee
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-        ]);
+            'EMP_Id' => $this->EMP_Id,
+            'EMP_AFM' => $this->EMP_AFM,
+            ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'email', $this->email]);
+        $query->andFilterWhere(['like', 'EMP_FirstName', $this->EMP_FirstName])
+            ->andFilterWhere(['like', 'EMP_LastName', $this->EMP_LastName])
+            ->andFilterWhere(['like', 'EMP_FatherFirstName', $this->EMP_FatherFirstName])
+            ->andFilterWhere(['like', 'EMP_Email', $this->EMP_Email]);
 
         return $dataProvider;
     }

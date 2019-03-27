@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Person;
+use app\models\EmployeeTest;
 
 /**
- * PersonSearch represents the model behind the search form of `app\models\Person`.
+ * EmployeeTestSearch represents the model behind the search form of `app\models\EmployeeTest`.
  */
-class PersonSearch extends Person
+class EmployeeTestSearch extends EmployeeTest
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PersonSearch extends Person
     public function rules()
     {
         return [
-            [['PER_Id'], 'integer'],
-            [['PER_FirstName', 'PER_LastName', 'PER_FatherFirstName', 'PER_AFM', 'PER_Email'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'email', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class PersonSearch extends Person
      */
     public function search($params)
     {
-        $query = Person::find();
+        $query = EmployeeTest::find();
 
         // add conditions that should always apply here
 
@@ -59,14 +59,13 @@ class PersonSearch extends Person
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'PER_Id' => $this->PER_Id,
-            'PER_AFM' => $this->PER_AFM,
-            ]);
+            'id' => $this->id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ]);
 
-        $query->andFilterWhere(['like', 'PER_FirstName', $this->PER_FirstName])
-            ->andFilterWhere(['like', 'PER_LastName', $this->PER_LastName])
-            ->andFilterWhere(['like', 'PER_FatherFirstName', $this->PER_FatherFirstName])
-            ->andFilterWhere(['like', 'PER_Email', $this->PER_Email]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'email', $this->email]);
 
         return $dataProvider;
     }

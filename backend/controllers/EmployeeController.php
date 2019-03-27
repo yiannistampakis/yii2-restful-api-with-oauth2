@@ -36,6 +36,16 @@ class EmployeeController extends RestController
                         'roles' => ['@'],
                     ],
                     [
+                        'actions' => ['sdap'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['sdap-teacher'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
                         'actions' => [],
                         'allow' => true,
                         'roles' => ['*'],
@@ -49,7 +59,9 @@ class EmployeeController extends RestController
                     'create' => ['POST'],
                     'update' => ['PUT'],
                     'view' => ['GET'],
-                    'delete' => ['DELETE']
+                    'delete' => ['DELETE'],
+                    'sdap' => ['GET'],
+                    'sdap-teacher' => ['GET']
                 ],
             ],
         ];
@@ -59,6 +71,26 @@ class EmployeeController extends RestController
     {
         $params = $this->request['search'];
         $response = Employee::search($params);
+        Yii::$app->api->sendSuccessResponse($response['data'], $response['info']);
+    }
+
+    /*
+     * Serves employees Employee's data to Sdap app
+     */
+    public function actionSdap()
+    {
+        $params = $this->request['search'];
+        $response = Employee::searchSdap($params);
+        Yii::$app->api->sendSuccessResponse($response['data'], $response['info']);
+    }
+
+    /*
+     * Serves teachers Employee's data to Sdap app
+     */
+    public function actionSdapTeacher()
+    {
+        $params = $this->request['search'];
+        $response = Employee::searchSdapTeacher($params);
         Yii::$app->api->sendSuccessResponse($response['data'], $response['info']);
     }
 
@@ -84,7 +116,6 @@ class EmployeeController extends RestController
         } else {
             Yii::$app->api->sendFailedResponse($model->errors);
         }
-
     }
 
     public function actionView($id)

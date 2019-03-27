@@ -83,20 +83,29 @@ return [
                 '1/me'=>'site/me',
                 '1/logout'=>'site/logout',
 
+                // '1/employees'=>'employee/index',
+                // '1/employees/view/<id>'=>'employee/view',
+                // '1/employees/create'=>'employee/create',
+                // '1/employees/update/<id>'=>'employee/update',
+                // '1/employees/delete/<id>'=>'employee/delete',
+
                 '1/employees'=>'employee/index',
                 '1/employees/view/<id>'=>'employee/view',
                 '1/employees/create'=>'employee/create',
                 '1/employees/update/<id>'=>'employee/update',
                 '1/employees/delete/<id>'=>'employee/delete',
-
-                '1/person'=>'person/index',
-                '1/person/view/<id>'=>'person/view',
-                '1/person/create'=>'person/create',
-                '1/person/update/<id>'=>'person/update',
-                '1/person/delete/<id>'=>'person/delete',
                 
-                '1/person/sdap/'=>'person/sdap',
-                '1/person/sdap/teacher'=>'person/sdap-teacher',
+                '1/employees/sdap/'=>'employee/sdap',
+                '1/employees/sdap/teacher'=>'employee/sdap-teacher',
+
+                // '1/person'=>'person/index',
+                // '1/person/view/<id>'=>'person/view',
+                // '1/person/create'=>'person/create',
+                // '1/person/update/<id>'=>'person/update',
+                // '1/person/delete/<id>'=>'person/delete',
+                
+                // '1/person/sdap/'=>'person/sdap',
+                // '1/person/sdap/teacher'=>'person/sdap-teacher',
 
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',

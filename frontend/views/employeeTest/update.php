@@ -3,11 +3,11 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Person */
+/* @var $model app\models\Employee */
 
-$this->title = 'Update Employee: ' . $model->EMP_LastName . ' ' . $model->EMP_FirstName;
+$this->title = 'Update Employee: '. $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Employees', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->EMP_FirstName, 'url' => ['view', 'id' => $model->EMP_Id]];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="employee-update">

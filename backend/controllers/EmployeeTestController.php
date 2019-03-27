@@ -3,13 +3,13 @@
 namespace backend\controllers;
 
 use yii\filters\AccessControl;
-use app\models\Person;
+use app\models\EmployeeTest;
 use backend\behaviours\Verbcheck;
 use backend\behaviours\Apiauth;
 
 use Yii;
 
-class PersonController extends RestController
+class EmployeeTestController extends RestController
 {
     public function behaviors()
     {
@@ -36,16 +36,6 @@ class PersonController extends RestController
                         'roles' => ['@'],
                     ],
                     [
-                        'actions' => ['sdap'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    [
-                        'actions' => ['sdap-teacher'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    [
                         'actions' => [],
                         'allow' => true,
                         'roles' => ['*'],
@@ -59,9 +49,7 @@ class PersonController extends RestController
                     'create' => ['POST'],
                     'update' => ['PUT'],
                     'view' => ['GET'],
-                    'delete' => ['DELETE'],
-                    'sdap' => ['GET'],
-                    'sdap-teacher' => ['GET']
+                    'delete' => ['DELETE']
                 ],
             ],
         ];
@@ -70,33 +58,13 @@ class PersonController extends RestController
     public function actionIndex()
     {
         $params = $this->request['search'];
-        $response = Person::search($params);
-        Yii::$app->api->sendSuccessResponse($response['data'], $response['info']);
-    }
-
-    /*
-     * Serves employees Person's data to Sdap app
-     */
-    public function actionSdap()
-    {
-        $params = $this->request['search'];
-        $response = Person::searchSdap($params);
-        Yii::$app->api->sendSuccessResponse($response['data'], $response['info']);
-    }
-
-    /*
-     * Serves teachers Person's data to Sdap app
-     */
-    public function actionSdapTeacher()
-    {
-        $params = $this->request['search'];
-        $response = Person::searchSdapTeacher($params);
+        $response = EmployeeTest::search($params);
         Yii::$app->api->sendSuccessResponse($response['data'], $response['info']);
     }
 
     public function actionCreate()
     {
-        $model = new Person;
+        $model = new EmployeeTest;
         $model->attributes = $this->request;
 
         if ($model->save()) {
@@ -116,6 +84,7 @@ class PersonController extends RestController
         } else {
             Yii::$app->api->sendFailedResponse($model->errors);
         }
+
     }
 
     public function actionView($id)
@@ -134,7 +103,7 @@ class PersonController extends RestController
 
     protected function findModel($id)
     {
-        if (($model = Person::findOne($id)) !== null) {
+        if (($model = EmployeeTestTest::findOne($id)) !== null) {
             return $model;
         } else {
             Yii::$app->api->sendFailedResponse("Invalid Record requested");
